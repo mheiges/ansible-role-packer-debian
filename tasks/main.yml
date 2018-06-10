@@ -16,3 +16,10 @@
     owner: vagrant
     group: vagrant
     mode:  0600
+
+- name: Check if guest is VirtualBox
+  stat: path=/home/vagrant/.vbox_version
+  register: is_virtualbox
+
+- include_tasks: virtualbox.yml
+  when: is_virtualbox.stat.exists
