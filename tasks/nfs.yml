@@ -1,0 +1,9 @@
+---
+
+- name: Install NFS utilities
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - nfs-common
+    - nfs-kernel-server
