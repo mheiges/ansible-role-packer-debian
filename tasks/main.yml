@@ -1,5 +1,9 @@
 ---
 
+# Packer passes "--extra-vars packer_install_puppet=true"
+- name: Run install puppet tasks
+  include_tasks: puppet.yml
+  when: packer_install_puppet is defined and (packer_install_puppet|bool)
 
 - name: Configure Vagrant .ssh directory.
   file:
@@ -23,3 +27,6 @@
 
 - include_tasks: virtualbox.yml
   when: is_virtualbox.stat.exists
+
+- include_tasks: puppet.yml
+  when: packer_install_puppet
