@@ -1,0 +1,10 @@
+---
+
+- name: Install Puppet repo
+  apt:
+    deb: "https://apt.puppetlabs.com/puppet-release-{{ ansible_distribution_release }}.deb"
+    update_cache: yes
+
+- name: Install Puppet agent
+  apt:
+    name: puppet

@@ -1,10 +1,6 @@
----
 
-- name: Install Puppet repo
-  apt:
-    deb: "https://apt.puppetlabs.com/puppet-release-{{ ansible_distribution_release }}.deb"
-    update_cache: yes
+- include_tasks: puppet_latest.yml
+  when: ansible_distribution == 'Debian' and ansible_distribution_version > '7'
 
-- name: Install Puppet agent
-  apt:
-    name: puppet
+- include_tasks: puppet_3.yml
+  when: ansible_distribution_version == '7'

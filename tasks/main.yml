@@ -27,6 +27,3 @@
 
 - include_tasks: virtualbox.yml
   when: is_virtualbox.stat.exists
-
-- include_tasks: puppet.yml
-  when: packer_install_puppet
