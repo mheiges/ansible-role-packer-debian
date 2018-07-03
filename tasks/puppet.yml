@@ -1,5 +1,5 @@
 - include_tasks: puppet_latest.yml
-  when: ansible_distribution == 'Debian' and ansible_distribution_major_version > '7'
+  when: ansible_distribution == 'Debian' and ansible_distribution_major_version > '9'
 
 - include_tasks: puppet_3.yml
-  when: ansible_distribution == 'Debian' and ansible_distribution_major_version == '7'
+  when: ansible_distribution == 'Debian' and ansible_distribution_major_version < '9'

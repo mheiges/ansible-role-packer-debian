@@ -1,11 +1,12 @@
 ---
-# Install Puppet 3 (for Debian 7 (Wheezy))
+# Install Puppet 3 (for Debian 7 (Wheezy) and Debian 8 (Jessie))
 #
 # loosely modeled after
 # https://github.ibm.com/clearleap-cp/clearplay_puppet/blob/master/aws_puppet_bootstrap.sh
 
+# use wheezy repo even on Debian 8 (Jessie)
 - set_fact:
-    puppetlabs_repo_deb: 'puppetlabs-release-{{ ansible_distribution_release }}.deb'
+    puppetlabs_repo_deb: 'puppetlabs-release-wheezy.deb'
 
 # Wheezy Python 2.7.3 does not support SNI, so use curl
 - name: Download puppet repo package
