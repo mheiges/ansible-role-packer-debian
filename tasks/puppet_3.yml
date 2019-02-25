@@ -11,7 +11,8 @@
 # Wheezy Python 2.7.3 does not support SNI, so use curl
 - name: Download puppet repo package
   command: "curl https://apt.puppetlabs.com/{{ puppetlabs_repo_deb }} -o /tmp/{{ puppetlabs_repo_deb }}"
-  warn: false
+  args:
+    warn: no
 
 - name: Install Puppet repo package
   apt:
